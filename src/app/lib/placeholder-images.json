@@ -1,0 +1,23 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "hero-cv",
+      "description": "Professional CV Layout",
+      "imageUrl": "https://picsum.photos/seed/profolio1/1200/800",
+      "imageHint": "professional resume"
+    },
+    {
+      "id": "feature-editor",
+      "description": "Real-time CV Editor",
+      "imageUrl": "https://picsum.photos/seed/profolio2/600/400",
+      "imageHint": "modern software"
+    },
+    {
+      "id": "feature-ai",
+      "description": "AI Bullet Enhancer",
+      "imageUrl": "https://picsum.photos/seed/profolio3/600/400",
+      "imageHint": "artificial intelligence"
+    }
+  ]
+}
