@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -50,8 +49,8 @@ export default function LoginPage() {
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleLogin}>
-          <CardContent className="space-y-4">
-            <div className="space-y-2">
+          <CardContent className="space-y-4" suppressHydrationWarning>
+            <div className="space-y-2" suppressHydrationWarning>
               <Label htmlFor="email">Email</Label>
               <Input 
                 id="email" 
@@ -62,7 +61,7 @@ export default function LoginPage() {
                 required 
               />
             </div>
-            <div className="space-y-2">
+            <div className="space-y-2" suppressHydrationWarning>
               <Label htmlFor="password">Password</Label>
               <Input 
                 id="password" 

@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -13,8 +12,13 @@ import { useRouter } from "next/navigation";
 
 export default function Dashboard() {
   const [cvs, setCvs] = useState<CVData[]>([]);
+  const [mounted, setMounted] = useState(false);
   const { user, loading, signOut } = useAuth();
   const router = useRouter();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (!loading && !user) {
@@ -44,6 +48,11 @@ export default function Dashboard() {
   const handleSignOut = async () => {
     await signOut();
     router.push("/");
+  };
+
+  const formatDate = (timestamp: number) => {
+    if (!mounted) return ""; // Prevent hydration mismatch for locale-dependent dates
+    return new Date(timestamp).toLocaleDateString();
   };
 
   if (loading) {
@@ -142,7 +151,7 @@ export default function Dashboard() {
                     {cv.title}
                   </CardTitle>
                   <p className="text-sm text-slate-500">
-                    Last updated: {new Date(cv.lastUpdated).toLocaleDateString()}
+                    Last updated: {formatDate(cv.lastUpdated)}
                   </p>
                 </CardHeader>
                 <CardContent className="flex-1">
