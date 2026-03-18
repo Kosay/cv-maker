@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>CV Template 3</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Source Sans 3',sans-serif;font-size:13px;color:#333;background:#fff;}
+  .page{width:900px;min-height:1270px;display:flex;}
+
+  /* SIDEBAR */
+  .sidebar{
+    width:270px;background:#f0f0f0;
+    flex-shrink:0;padding:30px 20px 40px 20px;
+  }
+  .photo-wrap{
+    width:130px;height:130px;border-radius:50%;overflow:hidden;
+    margin:0 auto 18px auto;border:4px solid #888;background:#ccc;
+  }
+  .photo-wrap img{width:100%;height:100%;object-fit:cover;}
+  .photo-placeholder{
+    width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:11px;background:#aaa;text-align:center;
+  }
+
+  .sidebar-section{margin-bottom:26px;}
+  .sidebar-title{
+    font-family:'Lato',sans-serif;font-weight:900;font-size:14px;
+    color:#333;margin-bottom:10px;letter-spacing:0.3px;
+  }
+
+  .skill-item{margin-bottom:10px;}
+  .skill-name{font-size:11.5px;color:#555;margin-bottom:4px;}
+  .skill-bar{height:3px;background:#ccc;border-radius:2px;}
+  .skill-fill{height:100%;background:#777;border-radius:2px;}
+
+  .lang-item{margin-bottom:10px;}
+  .lang-name{font-size:11.5px;color:#555;margin-bottom:3px;}
+  .lang-stars{color:#999;font-size:13px;letter-spacing:2px;}
+
+  .contact-label{font-size:10px;color:#888;margin-top:8px;margin-bottom:2px;}
+  .contact-value{font-size:11.5px;color:#333;word-break:break-all;}
+
+  /* MAIN */
+  .main{flex:1;display:flex;flex-direction:column;}
+
+  /* Header block */
+  .header-block{
+    background:#6b6b6b;
+    padding:30px 40px 30px 40px;
+    display:flex;align-items:flex-start;gap:30px;
+  }
+  .name-title{
+    font-family:'Lato',sans-serif;font-size:32px;font-weight:900;
+    color:#fff;letter-spacing:0.5px;
+  }
+  .summary-header{
+    font-size:12.5px;color:rgba(255,255,255,0.85);
+    line-height:1.7;margin-top:10px;
+  }
+
+  .content{padding:30px 40px 40px 40px;}
+
+  .section-title{
+    font-family:'Lato',sans-serif;font-size:16px;font-weight:700;
+    color:#444;margin-bottom:6px;
+  }
+  .section-divider{height:1px;background:#ccc;margin-bottom:16px;}
+
+  .info-row{margin-bottom:5px;}
+  .info-label{font-weight:700;font-size:12.5px;color:#333;display:inline;}
+  .info-value{font-size:12.5px;color:#555;display:inline;}
+
+  .job{margin-bottom:20px;}
+  .job-header{display:flex;justify-content:space-between;align-items:flex-start;}
+  .job-org{font-size:14px;font-weight:700;color:#333;}
+  .job-date{font-size:11px;color:#888;white-space:nowrap;margin-left:10px;padding-top:2px;}
+  .job-title{font-size:12px;color:#666;margin-bottom:3px;}
+  .job-dept{font-size:11.5px;color:#999;}
+  .job-duties{list-style:disc;padding-left:18px;margin-top:4px;}
+  .job-duties li{font-size:11.5px;color:#555;margin-bottom:2px;}
+
+  .section-block{margin-bottom:28px;}
+</style>
+</head>
+<body>
+<div class="page">
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="photo-wrap">
+      <div class="photo-placeholder">{{photo}}</div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-title">Skills</div>
+      <div class="skill-item">
+        <div class="skill-name">{{skill_1}}</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:{{skill_1_level}}%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">{{skill_2}}</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:{{skill_2_level}}%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">{{skill_3}}</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:{{skill_3_level}}%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">{{skill_4}}</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:{{skill_4_level}}%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">{{skill_5}}</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:{{skill_5_level}}%"></div></div>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-title">Languages</div>
+      <div class="lang-item">
+        <div class="lang-name">{{lang_1}}</div>
+        <div class="lang-stars">{{lang_1_stars}}</div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">{{lang_2}}</div>
+        <div class="lang-stars">{{lang_2_stars}}</div>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-title">CONTACT</div>
+      <div class="contact-label">Email</div>
+      <div class="contact-value">{{email}}</div>
+      <div class="contact-label">Phone</div>
+      <div class="contact-value">{{phone}}</div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="header-block">
+      <div>
+        <div class="name-title">{{first_name}} {{last_name}}</div>
+        <div class="summary-header">{{summary}}</div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="section-block">
+        <div class="section-title">Visa Status</div>
+        <div class="section-divider"></div>
+        <div class="info-row"><span class="info-value">{{visa_status}}</span></div>
+        <div class="info-row"><span class="info-label">Date of birth: </span><span class="info-value">{{dob}}</span></div>
+        <div class="info-row"><span class="info-label">Nationality: </span><span class="info-value">{{nationality}}</span></div>
+      </div>
+
+      <div class="section-block">
+        <div class="section-title">Work Experience</div>
+        <div class="section-divider"></div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-org">{{job_1_org}} &nbsp;|&nbsp; {{job_1_location}}</div>
+            <div class="job-date">{{job_1_start}} - {{job_1_end}}</div>
+          </div>
+          <div class="job-title">{{job_1_title}}</div>
+          <div class="job-dept">{{job_1_dept}}</div>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-org">{{job_2_org}} &nbsp;|&nbsp; {{job_2_location}}</div>
+            <div class="job-date">{{job_2_start}} - {{job_2_end}}</div>
+          </div>
+          <div class="job-title">{{job_2_title}}</div>
+          <div class="job-dept">{{job_2_dept}}</div>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-org">{{job_3_org}} &nbsp;|&nbsp; {{job_3_location}}</div>
+            <div class="job-date">{{job_3_start}} - {{job_3_end}}</div>
+          </div>
+          <div class="job-title">{{job_3_title}}</div>
+          <ul class="job-duties">
+            <li>{{job_3_duty_1}}</li>
+            <li>{{job_3_duty_2}}</li>
+            <li>{{job_3_duty_3}}</li>
+            <li>{{job_3_duty_4}}</li>
+            <li>{{job_3_duty_5}}</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="section-title">Education</div>
+        <div class="section-divider"></div>
+        <div class="job">
+          <div class="job-org">{{edu_1_school}}</div>
+          <div class="job-title">{{edu_1_degree}} &nbsp; {{edu_1_start}} - {{edu_1_end}}</div>
+        </div>
+        <div class="job">
+          <div class="job-org">{{edu_2_school}}</div>
+          <div class="job-title">{{edu_2_degree}} &nbsp; {{edu_2_start}} - {{edu_2_end}}</div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="section-title">Training, Courses &amp; License</div>
+        <div class="section-divider"></div>
+        <div class="job">
+          <div class="job-org">{{cert_1_name}}</div>
+          <div class="job-title">{{cert_1_org}} &nbsp; {{cert_1_date}}</div>
+        </div>
+        <div class="job">
+          <div class="job-org">{{cert_2_name}}</div>
+          <div class="job-title">{{cert_2_org}} &nbsp; {{cert_2_date}}</div>
+        </div>
+        <div class="job">
+          <div class="job-org">{{cert_3_name}}</div>
+          <div class="job-title">{{cert_3_org}} &nbsp; {{cert_3_date}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

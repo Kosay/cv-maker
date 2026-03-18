@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>CV Template 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Open Sans',sans-serif;font-size:13px;color:#333;background:#fff;}
+  .page{width:900px;min-height:1270px;display:flex;position:relative;overflow:hidden;}
+
+  /* Decorative diagonal top-right */
+  .page::before{
+    content:'';position:absolute;top:0;right:0;
+    width:620px;height:290px;
+    background:#e8c9b5;
+    clip-path:polygon(100% 0,100% 100%,30% 0);
+    z-index:0;
+  }
+
+  /* LEFT SIDEBAR */
+  .sidebar{
+    width:265px;min-height:100%;
+    background:#b0b0b0;
+    padding:220px 20px 40px 20px;
+    flex-shrink:0;
+    position:relative;
+    z-index:1;
+  }
+  .photo-wrap{
+    position:absolute;top:40px;left:50%;
+    transform:translateX(-50%);
+    width:130px;height:130px;
+    border-radius:50%;overflow:hidden;
+    border:4px solid #fff;
+    background:#ccc;
+  }
+  .photo-wrap img{width:100%;height:100%;object-fit:cover;}
+  .photo-placeholder{
+    width:100%;height:100%;
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:11px;text-align:center;
+    background:#aaa;
+  }
+
+  .sidebar-section{margin-bottom:28px;}
+  .sidebar-title{
+    font-family:'Raleway',sans-serif;font-weight:700;font-size:14px;
+    color:#fff;margin-bottom:12px;letter-spacing:0.5px;
+  }
+  .skill-item{margin-bottom:10px;}
+  .skill-name{font-size:11px;color:#f5f5f5;margin-bottom:4px;}
+  .skill-bar{height:3px;background:rgba(255,255,255,0.3);border-radius:2px;}
+  .skill-fill{height:100%;background:#fff;border-radius:2px;width:80%;}
+
+  .lang-item{margin-bottom:10px;}
+  .lang-name{font-size:11px;color:#f5f5f5;margin-bottom:4px;}
+  .stars{color:#fff;font-size:13px;letter-spacing:2px;}
+  .star-empty{color:rgba(255,255,255,0.4);}
+
+  .contact-label{font-size:10px;color:rgba(255,255,255,0.7);margin-top:8px;margin-bottom:2px;}
+  .contact-value{font-size:11px;color:#fff;word-break:break-all;}
+
+  /* RIGHT MAIN */
+  .main{
+    flex:1;padding:50px 50px 40px 50px;
+    position:relative;z-index:1;
+  }
+  .name-block{margin-bottom:20px;margin-top:10px;}
+  .first-name{
+    font-family:'Raleway',sans-serif;font-size:46px;font-weight:700;
+    color:#c97a50;line-height:1.1;
+  }
+  .last-name{
+    font-family:'Raleway',sans-serif;font-size:46px;font-weight:700;
+    color:#c97a50;line-height:1.1;
+  }
+  .divider-name{width:50px;height:3px;background:#c97a50;margin:10px 0 15px;}
+
+  .summary{font-size:12.5px;color:#444;line-height:1.7;margin-bottom:35px;max-width:560px;}
+
+  .section-title{
+    font-family:'Raleway',sans-serif;font-size:17px;font-weight:700;
+    color:#c97a50;margin-bottom:6px;letter-spacing:0.3px;
+  }
+  .section-divider{height:1px;background:#ddd;margin-bottom:18px;}
+
+  .job{margin-bottom:24px;}
+  .job-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:3px;}
+  .job-org{font-family:'Raleway',sans-serif;font-size:13px;font-weight:700;color:#333;}
+  .job-date{font-size:11px;color:#888;white-space:nowrap;margin-left:10px;padding-top:2px;}
+  .job-title{font-size:12px;color:#555;margin-bottom:4px;}
+  .job-dept{font-size:11.5px;color:#c97a50;margin-bottom:4px;}
+  .job-duties{list-style:disc;padding-left:18px;margin-top:4px;}
+  .job-duties li{font-size:11.5px;color:#555;margin-bottom:2px;}
+</style>
+</head>
+<body>
+<div class="page">
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="photo-wrap">
+      <div class="photo-placeholder">{{photo}}</div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-title">Skills</div>
+      <div class="skill-item">
+        <div class="skill-name">{{skill_1}}</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:{{skill_1_level}}%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">{{skill_2}}</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:{{skill_2_level}}%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">{{skill_3}}</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:{{skill_3_level}}%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">{{skill_4}}</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:{{skill_4_level}}%"></div></div>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-title">Languages</div>
+      <div class="lang-item">
+        <div class="lang-name">{{lang_1}}</div>
+        <div class="stars">{{lang_1_stars}}</div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">{{lang_2}}</div>
+        <div class="stars">{{lang_2_stars}}</div>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-title">CONTACT</div>
+      <div class="contact-label">Email</div>
+      <div class="contact-value">{{email}}</div>
+      <div class="contact-label">Phone</div>
+      <div class="contact-value">{{phone}}</div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="name-block">
+      <div class="first-name">{{first_name}}</div>
+      <div class="last-name">{{last_name}}</div>
+      <div class="divider-name"></div>
+    </div>
+
+    <div class="summary">{{summary}}</div>
+
+    <div class="section-title">Work Experience</div>
+    <div class="section-divider"></div>
+
+    <div class="job">
+      <div class="job-header">
+        <div class="job-org">{{job_1_org}} &nbsp;|&nbsp; {{job_1_location}}</div>
+        <div class="job-date">{{job_1_start}} - {{job_1_end}}</div>
+      </div>
+      <div class="job-title">{{job_1_title}}</div>
+      <div class="job-dept">{{job_1_dept}}</div>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <div class="job-org">{{job_2_org}} &nbsp;|&nbsp; {{job_2_location}}</div>
+        <div class="job-date">{{job_2_start}} - {{job_2_end}}</div>
+      </div>
+      <div class="job-title">{{job_2_title}}</div>
+      <div class="job-dept">{{job_2_dept}}</div>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <div class="job-org">{{job_3_org}} &nbsp;|&nbsp; {{job_3_location}}</div>
+        <div class="job-date">{{job_3_start}} - {{job_3_end}}</div>
+      </div>
+      <div class="job-title">{{job_3_title}}</div>
+      <ul class="job-duties">
+        <li>{{job_3_duty_1}}</li>
+        <li>{{job_3_duty_2}}</li>
+        <li>{{job_3_duty_3}}</li>
+        <li>{{job_3_duty_4}}</li>
+        <li>{{job_3_duty_5}}</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <div class="job-org">{{job_4_org}} &nbsp;|&nbsp; {{job_4_location}}</div>
+        <div class="job-date">{{job_4_start}} - {{job_4_end}}</div>
+      </div>
+      <div class="job-title">{{job_4_title}}</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

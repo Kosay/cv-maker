@@ -9,7 +9,14 @@
     pkgs.zulu
   ];
   # Sets environment variables in the workspace
-  env = {};
+  env = {
+     NEXT_PUBLIC_FIREBASE_API_KEY = "AIzaSyB2falGVzU0-Xl6a8zetZzgMZD-Es_slAk";
+     NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN = "kmh-cv-maker.firebaseapp.com";
+     NEXT_PUBLIC_FIREBASE_PROJECT_ID = "kmh-cv-maker";
+     NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET = "kmh-cv-maker.firebasestorage.app";
+     NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID = "755649518526";
+     NEXT_PUBLIC_FIREBASE_APP_ID = "1:755649518526:web:e1e648a612472df67cb7ef";
+   };
   # This adds a file watcher to startup the firebase emulators. The emulators will only start if
   # a firebase.json file is written into the user's directory
   services.firebase.emulators = {
