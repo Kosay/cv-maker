@@ -1,4 +1,3 @@
-
 export interface PersonalInfo {
   fullName: string;
   email: string;
@@ -48,7 +47,7 @@ export interface CVData {
 
 export const emptyCV: CVData = {
   title: "My Professional Resume",
-  lastUpdated: Date.now(),
+  lastUpdated: 0,
   personalInfo: {
     fullName: "",
     email: "",

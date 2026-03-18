@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -17,11 +16,7 @@ interface EditorContainerProps {
 }
 
 export function EditorContainer({ initialData }: EditorContainerProps) {
-  const [data, setData] = useState<CVData>(initialData || {
-    ...emptyCV,
-    id: Math.random().toString(36).substr(2, 9),
-    lastUpdated: Date.now(),
-  });
+  const [data, setData] = useState<CVData>(initialData || emptyCV);
   const [saving, setSaving] = useState(false);
   const [showMobilePreview, setShowMobilePreview] = useState(false);
   const router = useRouter();
@@ -34,12 +29,22 @@ export function EditorContainer({ initialData }: EditorContainerProps) {
     }
   }, [user, authLoading, router]);
 
+  useEffect(() => {
+    // If no initial data is provided, generate a stable ID and timestamp on the client
+    if (!initialData && data.lastUpdated === 0) {
+      setData(prev => ({
+        ...prev,
+        id: Math.random().toString(36).substr(2, 9),
+        lastUpdated: Date.now(),
+      }));
+    }
+  }, [initialData, data.lastUpdated]);
+
   const handleSave = async () => {
     if (!user) return;
     
     setSaving(true);
     try {
-      // Simulate save to DB (Firestore logic would go here)
       const existing = JSON.parse(localStorage.getItem("profolio_cvs") || "[]");
       const currentData = { ...data, lastUpdated: Date.now(), userId: user.uid };
       const updated = [currentData, ...existing.filter((c: CVData) => c.id !== data.id)];
